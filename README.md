@@ -2,9 +2,7 @@
 
 ## Install lex and yacc on ubuntu
 
-### open terminal
-
-`sudo apt-get update`
+*open terminal and type * `sudo apt-get update`
 
 
 ### to install lex
