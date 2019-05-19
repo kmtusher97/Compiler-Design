@@ -66,12 +66,11 @@
 
 	#include <stdio.h>
 	#include <stdlib.h>
+
 	void yyerror(char *);
 	int values[200], symbols[200];
-	int n, i, x;
-	char a, b;
 
-#line 75 "y.tab.c" /* yacc.c:339  */
+#line 74 "y.tab.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -106,13 +105,13 @@ extern int yydebug;
 # define YYTOKENTYPE
   enum yytokentype
   {
-    ID = 258,
+    Identifier = 258,
     INTEGER = 259,
     UnaryMinus = 260
   };
 #endif
 /* Tokens.  */
-#define ID 258
+#define Identifier 258
 #define INTEGER 259
 #define UnaryMinus 260
 
@@ -132,7 +131,7 @@ int yyparse (void);
 
 /* Copy the second part of user declarations.  */
 
-#line 136 "y.tab.c" /* yacc.c:358  */
+#line 135 "y.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -430,7 +429,7 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    15,    15,    16,    17,    18,    20,    21,    22,    23,
+       0,    14,    14,    15,    16,    17,    20,    21,    22,    23,
       24,    32,    33
 };
 #endif
@@ -440,8 +439,9 @@ static const yytype_uint8 yyrline[] =
    First, the terminals, then, starting at YYNTOKENS, nonterminals.  */
 static const char *const yytname[] =
 {
-  "$end", "error", "$undefined", "ID", "INTEGER", "'+'", "'-'", "'*'",
-  "'/'", "UnaryMinus", "'\\n'", "'('", "')'", "$accept", "line", "exp", YY_NULLPTR
+  "$end", "error", "$undefined", "Identifier", "INTEGER", "'+'", "'-'",
+  "'*'", "'/'", "UnaryMinus", "'\\n'", "'('", "')'", "$accept", "line",
+  "exp", YY_NULLPTR
 };
 #endif
 
@@ -1214,13 +1214,13 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 15 "assignement.y" /* yacc.c:1646  */
+#line 14 "assignement.y" /* yacc.c:1646  */
     {printf("result = %d\n", (yyvsp[-1])); YYABORT;}
 #line 1220 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 5:
-#line 18 "assignement.y" /* yacc.c:1646  */
+#line 17 "assignement.y" /* yacc.c:1646  */
     {yyerror("Write the prev line correctly"); yyerrok;}
 #line 1226 "y.tab.c" /* yacc.c:1646  */
     break;
@@ -1233,19 +1233,19 @@ yyreduce:
 
   case 7:
 #line 21 "assignement.y" /* yacc.c:1646  */
-    {(yyval) = (yyvsp[-2]) + (yyvsp[-1]);}
+    {(yyval) = (yyvsp[-2]) + (yyvsp[0]);}
 #line 1238 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 8:
 #line 22 "assignement.y" /* yacc.c:1646  */
-    {(yyval) = (yyvsp[-2]) - (yyvsp[-1]);}
+    {(yyval) = (yyvsp[-2]) - (yyvsp[0]);}
 #line 1244 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 9:
 #line 23 "assignement.y" /* yacc.c:1646  */
-    {(yyval) = (yyvsp[-2]) * (yyvsp[-1]);}
+    {(yyval) = (yyvsp[-2]) * (yyvsp[0]);}
 #line 1250 "y.tab.c" /* yacc.c:1646  */
     break;
 
@@ -1508,7 +1508,10 @@ yyreturn:
 void yyerror(char *s) {
     fprintf(stderr, "%s\n", s);
 }
+
 int main() {
+	char a, b;
+	int n, i, x;
 	printf("Enter the number of variables, n: ");
 	scanf("%d", &n);
 	printf("Enter n variables and their values: (x=4) format\n");

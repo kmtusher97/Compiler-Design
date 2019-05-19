@@ -5,7 +5,7 @@
 
 %%
 [0-9]+      { yylval = atoi(yytext); return INTEGER; }
-[a-zA-Z]    { yylval = yytext[0]; return ID; }
+[a-zA-Z]    { yylval = yytext[0]; return(Identifier); }
 [ \t]       ; 
 .|\n        {return yytext[0];}
 
